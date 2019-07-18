@@ -20,7 +20,15 @@ def find_max_profit(prices):
           max_profit_so_far.append(prices[j] - prices[i]) 
   return max(max_profit_so_far)
 
-
+def find_max_profit(prices):
+    current_min = prices[0]
+    max_difference = prices[1] - prices[0] 
+    for i in range(1, len(prices)):
+        if prices[i] - current_min > max_difference:
+            max_difference = prices[i] - current_min 
+        if prices[i] < current_min:
+            current_min = prices[i]
+    return max_difference
 
 
 if __name__ == '__main__':
